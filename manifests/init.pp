@@ -83,9 +83,9 @@ class java(
 
   anchor { 'java::begin:': }
   ->
-  package { 'java':
-    ensure => $version,
-    name   => $use_java_package_name,
+  java::package { "${use_java_package_name}-${version}":
+    version      => $version,
+    package_name => $use_java_package_name,
   }
   ->
   class { 'java::config': }
